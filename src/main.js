@@ -1,14 +1,8 @@
-import React from 'react'
 import Frame, { FrameContextConsumer } from 'react-frame-component'
 import { StyleSheetManager, withTheme, ThemeProvider } from 'styled-components'
 
 export default withTheme((props) => {
-  const {
-    theme,
-    style = { },
-    children,
-    ...rest
-  } = props
+  const { theme, style = {}, children, ...rest } = props
 
   return (
     <Frame
@@ -16,7 +10,7 @@ export default withTheme((props) => {
         display: 'block',
         overflow: 'scroll',
         border: 0,
-        ...style
+        ...style,
       }}
       {...rest}
     >
@@ -24,9 +18,7 @@ export default withTheme((props) => {
         {(frameContext) => (
           <StyleSheetManager target={frameContext.document.head}>
             {theme ? (
-              <ThemeProvider theme={theme}>
-                {children}
-              </ThemeProvider>
+              <ThemeProvider theme={theme}>{children}</ThemeProvider>
             ) : (
               children
             )}
