@@ -2,7 +2,7 @@
 
 > React **iframe** that works well with **styled-components**.
 
-[![NPM](https://img.shields.io/npm/v/react-styled-frame.svg)](https://www.npmjs.com/package/react-styled-frame) [![Build Status](https://travis-ci.com/hydrateio/react-styled-frame.svg?branch=master)](https://travis-ci.com/hydrateio/react-styled-frame) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+This is a continuation of https://www.npmjs.com/package/react-styled-frame since their version doesn't work with newer React projects.
 
 - Uses [react-frame-component](https://github.com/ryanseddon/react-frame-component) under the hood
 - Makes it really simple to use styled-somponents in your iframes
@@ -11,7 +11,7 @@
 ## Install
 
 ```bash
-npm install react-styled-frame
+npm install @pitis/react-styled-frame
 ```
 
 ## Usage
