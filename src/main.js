@@ -1,3 +1,4 @@
+import React from 'react'
 import Frame, { FrameContextConsumer } from 'react-frame-component'
 import { StyleSheetManager, withTheme, ThemeProvider } from 'styled-components'
 
