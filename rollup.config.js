@@ -1,9 +1,14 @@
+import typescript from '@rollup/plugin-typescript'
 import commonjs from '@rollup/plugin-commonjs'
 import { babel } from '@rollup/plugin-babel'
+import { DEFAULT_EXTENSIONS } from '@babel/core'
 import pkg from './package.json'
 
+let defaults = { compilerOptions: { declaration: true } }
+let override = { compilerOptions: { declaration: false } }
+
 export default {
-  input: 'src/main.js',
+  input: 'src/main.tsx',
   output: [
     {
       file: pkg.main,
@@ -20,7 +25,11 @@ export default {
   ],
   plugins: [
     commonjs({ exclude: 'src/**' }),
-    babel({ babelHelpers: 'bundled' }),
+    babel({
+      babelHelpers: 'bundled',
+      extensions: [...DEFAULT_EXTENSIONS, '.ts', '.tsx'],
+    }),
+    typescript(),
   ],
   external: ['react-frame-component', 'styled-components', 'react'],
 }

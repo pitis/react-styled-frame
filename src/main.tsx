@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import Frame, { FrameContextConsumer } from 'react-frame-component'
-import { StyleSheetManager, withTheme, ThemeProvider } from 'styled-components'
+import {
+  StyleSheetManager,
+  withTheme,
+  ThemeProvider,
+  ThemeProviderProps,
+} from 'styled-components'
 
-export default withTheme((props) => {
+interface Props {
+  theme: ThemeProviderProps<{}>
+  children: ReactElement[]
+  style: CSSStyleRule[]
+}
+
+export default withTheme((props: Props) => {
   const { theme, style = {}, children, ...rest } = props
 
   return (
@@ -16,7 +27,7 @@ export default withTheme((props) => {
       {...rest}
     >
       <FrameContextConsumer>
-        {(frameContext) => (
+        {(frameContext: { document: { head: HTMLElement | undefined } }) => (
           <StyleSheetManager target={frameContext.document.head}>
             {theme ? (
               <ThemeProvider theme={theme}>{children}</ThemeProvider>
