@@ -58,7 +58,7 @@ const Text = styled.h4`
 export default App
 ```
 
-This seems simple, but it's actually fairly involved. It require using [StyleSheetManager](https://github.com/styled-components/styled-components/pull/1491) and [FrameContextConsumer](https://github.com/ryanseddon/react-frame-component#accessing-the-iframes-window-and-document) in order to properly propagate all styles from styled-components.
+This seems simple, but it's actually fairly involved. It requires using [StyleSheetManager](https://github.com/styled-components/styled-components/pull/1491) and [FrameContextConsumer](https://github.com/ryanseddon/react-frame-component#accessing-the-iframes-window-and-document) in order to properly propagate all styles from styled-components.
 
 ## Props
 
