@@ -1,37 +1,35 @@
-import babel from 'rollup-plugin-babel'
-import commonjs from 'rollup-plugin-commonjs'
-import external from 'rollup-plugin-peer-deps-external'
-import postcss from 'rollup-plugin-postcss'
-import resolve from 'rollup-plugin-node-resolve'
-import url from 'rollup-plugin-url'
-
+import typescript from '@rollup/plugin-typescript'
+import commonjs from '@rollup/plugin-commonjs'
+import { babel } from '@rollup/plugin-babel'
+import { DEFAULT_EXTENSIONS } from '@babel/core'
 import pkg from './package.json'
 
+let defaults = { compilerOptions: { declaration: true } }
+let override = { compilerOptions: { declaration: false } }
+
 export default {
-  input: 'src/index.js',
+  input: 'src/main.tsx',
   output: [
     {
       file: pkg.main,
       format: 'cjs',
-      sourcemap: true
+      sourcemap: true,
+      exports: 'auto',
     },
     {
       file: pkg.module,
       format: 'es',
-      sourcemap: true
-    }
+      sourcemap: true,
+      exports: 'auto',
+    },
   ],
   plugins: [
-    external(),
-    postcss({
-      modules: true
-    }),
-    url(),
+    commonjs({ exclude: 'src/**' }),
     babel({
-      exclude: 'node_modules/**',
-      plugins: [ 'external-helpers' ]
+      babelHelpers: 'bundled',
+      extensions: [...DEFAULT_EXTENSIONS, '.ts', '.tsx'],
     }),
-    resolve(),
-    commonjs()
-  ]
+    typescript(),
+  ],
+  external: ['react-frame-component', 'styled-components', 'react'],
 }

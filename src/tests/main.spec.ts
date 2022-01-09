@@ -1,4 +1,4 @@
-import StyledFrame from './'
+import StyledFrame from '../main'
 
 describe('StyledFrame', () => {
   it('is truthy', () => {
