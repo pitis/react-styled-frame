@@ -22,5 +22,5 @@ export default {
     commonjs({ exclude: 'src/**' }),
     babel({ babelHelpers: 'bundled' }),
   ],
-  external: ['react-frame-component', 'styled-components'],
+  external: ['react-frame-component', 'styled-components', 'react'],
 }
