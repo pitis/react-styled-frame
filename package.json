@@ -13,7 +13,7 @@
     "npm": ">=8"
   },
   "scripts": {
-    "build": "rollup --config",
+    "build": "tsc && rollup --config",
     "start": "rollup -c -w",
     "test": "react-scripts test --env=jsdom"
   },

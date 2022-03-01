@@ -21,7 +21,7 @@ Normally, when you try to use [react-frame-component](https://github.com/ryansed
 The following example shows how easy it is to include styled content inside of an iframe using `react-styled-frame`.
 
 ```jsx
-import StyledFrame from 'react-styled-frame'
+import StyledFrame from '@pitis/react-styled-frame'
 import styled, { ThemeProvider } from 'styled-components'
 
 function App() {
