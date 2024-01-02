@@ -2,22 +2,18 @@ import typescript from '@rollup/plugin-typescript'
 import commonjs from '@rollup/plugin-commonjs'
 import { babel } from '@rollup/plugin-babel'
 import { DEFAULT_EXTENSIONS } from '@babel/core'
-import pkg from './package.json'
-
-let defaults = { compilerOptions: { declaration: true } }
-let override = { compilerOptions: { declaration: false } }
 
 export default {
   input: 'src/main.tsx',
   output: [
     {
-      file: pkg.main,
+      file: 'dist/index.js',
       format: 'cjs',
       sourcemap: true,
       exports: 'auto',
     },
     {
-      file: pkg.module,
+      file: 'dist/index.es.js',
       format: 'es',
       sourcemap: true,
       exports: 'auto',
